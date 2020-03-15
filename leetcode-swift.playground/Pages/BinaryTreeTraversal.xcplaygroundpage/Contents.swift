@@ -132,10 +132,69 @@ class RecursiveSolution {
 let recursive = RecursiveSolution()
 
 let tree: TreeNode = [1,nil,2,3]
-print(tree)
-print(recursive.postorderTraversal(tree))
-print(recursive.inorderTraversal(tree))
+//print(tree)
+//print("递归先序遍历", recursive.preorderTraversal(tree))
+//print("递归中序遍历", recursive.inorderTraversal(tree))
+//print("递归后序遍历", recursive.postorderTraversal(tree))
 
 let exam: TreeNode = [5, 4, 7, 3, nil, 2, nil, -1, nil, 9]
 print(exam)
+print("递归先序遍历", recursive.preorderTraversal(exam))
+print("递归中序遍历", recursive.inorderTraversal(exam))
+print("递归后序遍历", recursive.postorderTraversal(exam))
 
+class NonRecursiveSolution {
+    func preorderTraversal<T>(_ root: TreeNode<T>?) -> [T] {
+        guard let root = root else { return [] }
+        var result: [T] = []
+        var flag: TreeNode<T>? = root
+        var stack: [TreeNode] = [TreeNode<T>]()
+        var top = 0
+
+        while flag != nil || top != 0 {
+            while let current = flag {
+                result.append(current.val)
+                stack.insert(current, at: top)
+                top += 1
+                flag = current.left
+            }
+            if top != 0 {
+                top -= 1
+                let last = stack[top]
+                flag = last.right
+            }
+        }
+        return result
+    }
+
+    func inorderTraversal<T>(_ root: TreeNode<T>?) -> [T] {
+        guard let root = root else { return [] }
+        var result: [T] = []
+        var flag: TreeNode<T>? = root
+        var stack: [TreeNode] = [TreeNode<T>]()
+        var top = 0
+
+        while flag != nil || top != 0 {
+            while let current = flag {
+                stack.insert(current, at: top)
+                top += 1
+                flag = current.left
+            }
+            if top != 0 {
+                top -= 1
+                let last = stack[top]
+                result.append(last.val)
+                flag = last.right
+            }
+        }
+        return result
+    }
+}
+
+let nonRec = NonRecursiveSolution()
+
+//print("非递归先序遍历", nonRec.preorderTraversal(tree))
+//print("非递归中序遍历", recursive.inorderTraversal(tree))
+
+print("非递归先序遍历", nonRec.preorderTraversal(exam))
+print("非递归中序遍历", recursive.inorderTraversal(exam))
