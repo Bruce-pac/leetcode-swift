@@ -189,6 +189,50 @@ class NonRecursiveSolution {
         }
         return result
     }
+
+    func levelTraversal<T>(_ root: TreeNode<T>?) -> [T] {
+        guard let root = root else { return [] }
+        var queue: [TreeNode<T>] = [root]
+        var result: [T] = []
+
+        while let node = queue.first {
+            queue.removeFirst()
+            result.append(node.val)
+            if let left = node.left {
+                queue.append(left)
+            }
+            if let right = node.right {
+                queue.append(right)
+            }
+        }
+        return result
+    }
+
+    func levelOrder<T>(_ root: TreeNode<T>?) -> [[T]] {
+        guard let root = root else { return [] }
+        var queue: [[TreeNode<T>]] = [[root]]
+        var result: [[T]] = []
+
+        while let level = queue.first {
+            queue.removeFirst()
+            let vals = level.map { $0.val }
+            result.append(vals)
+
+            var nodeLevel: [TreeNode<T>] = []
+            for node in level {
+                if let left = node.left {
+                    nodeLevel.append(left)
+                }
+                if let right = node.right {
+                    nodeLevel.append(right)
+                }
+            }
+            if !nodeLevel.isEmpty {
+                queue.append(nodeLevel)
+            }
+        }
+        return result
+    }
 }
 
 let nonRec = NonRecursiveSolution()
@@ -196,5 +240,12 @@ let nonRec = NonRecursiveSolution()
 //print("非递归先序遍历", nonRec.preorderTraversal(tree))
 //print("非递归中序遍历", recursive.inorderTraversal(tree))
 
-print("非递归先序遍历", nonRec.preorderTraversal(exam))
-print("非递归中序遍历", recursive.inorderTraversal(exam))
+//print("非递归先序遍历", nonRec.preorderTraversal(exam))
+//print("非递归先序遍历", nonRec.preorderTraversal(exam))
+
+let levelExam: TreeNode = [1,2,3,4,nil,nil,5]
+
+print("非递归层次遍历", nonRec.levelTraversal(exam))
+print("非递归层次遍历", nonRec.levelTraversal(tree))
+print("非递归层次遍历", nonRec.levelTraversal(levelExam))
+print("非递归层次遍历", nonRec.levelOrder(levelExam))
