@@ -15,5 +15,6 @@
         <page name='350'/>
         <page name='BinarySearch'/>
         <page name='BinaryTreeTraversal'/>
+        <page name='GraphSearch'/>
     </pages>
 </playground>
