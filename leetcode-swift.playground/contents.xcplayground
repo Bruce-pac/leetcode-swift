@@ -16,5 +16,6 @@
         <page name='BinarySearch'/>
         <page name='BinaryTreeTraversal'/>
         <page name='GraphSearch'/>
+        <page name='longestPalindrome'/>
     </pages>
 </playground>
