@@ -17,5 +17,6 @@
         <page name='BinaryTreeTraversal'/>
         <page name='GraphSearch'/>
         <page name='longestPalindrome'/>
+        <page name='canMeasureWater'/>
     </pages>
 </playground>
