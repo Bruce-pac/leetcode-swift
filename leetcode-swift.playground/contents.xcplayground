@@ -19,5 +19,6 @@
         <page name='longestPalindrome'/>
         <page name='canMeasureWater'/>
         <page name='minIncrementForUnique'/>
+        <page name='middleNode'/>
     </pages>
 </playground>
