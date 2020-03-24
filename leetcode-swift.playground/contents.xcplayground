@@ -20,5 +20,6 @@
         <page name='canMeasureWater'/>
         <page name='minIncrementForUnique'/>
         <page name='middleNode'/>
+        <page name='qSort'/>
     </pages>
 </playground>
