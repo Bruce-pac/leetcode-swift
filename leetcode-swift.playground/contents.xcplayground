@@ -21,5 +21,6 @@
         <page name='minIncrementForUnique'/>
         <page name='middleNode'/>
         <page name='qSort'/>
+        <page name='surfaceArea'/>
     </pages>
 </playground>
