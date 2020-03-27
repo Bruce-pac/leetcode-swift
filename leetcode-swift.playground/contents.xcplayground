@@ -22,5 +22,6 @@
         <page name='middleNode'/>
         <page name='qSort'/>
         <page name='surfaceArea'/>
+        <page name='hasGroupsSizeX'/>
     </pages>
 </playground>
