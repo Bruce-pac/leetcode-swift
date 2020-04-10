@@ -23,5 +23,6 @@
         <page name='qSort'/>
         <page name='surfaceArea'/>
         <page name='hasGroupsSizeX'/>
+        <page name='reverseWords'/>
     </pages>
 </playground>
