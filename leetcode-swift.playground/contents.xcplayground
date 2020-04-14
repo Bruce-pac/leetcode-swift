@@ -24,5 +24,6 @@
         <page name='surfaceArea'/>
         <page name='hasGroupsSizeX'/>
         <page name='reverseWords'/>
+        <page name='addTwoNumbers'/>
     </pages>
 </playground>
