@@ -233,6 +233,13 @@ class NonRecursiveSolution {
         }
         return result
     }
+
+    func rightSideView<T>(_ root: TreeNode<T>?) -> [T] {
+        guard let root = root else { return [] }
+        let levels = levelOrder(root)
+        let res = levels.compactMap { $0.last }
+        return res
+    }
 }
 
 let nonRec = NonRecursiveSolution()
@@ -249,3 +256,7 @@ print("非递归层次遍历", nonRec.levelTraversal(exam))
 print("非递归层次遍历", nonRec.levelTraversal(tree))
 print("非递归层次遍历", nonRec.levelTraversal(levelExam))
 print("非递归层次遍历", nonRec.levelOrder(levelExam))
+
+let rightside: TreeNode = [1,2,3,nil,5,nil,4]
+
+print(nonRec.rightSideView(rightside))
