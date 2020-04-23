@@ -15,6 +15,7 @@ func dfs(_ graph: Graph, source: Node) -> [String] {
 }
 
 func bfs(_ graph: Graph, source: Node) -> [String] {
+    // 存储已经访问过的node
     var queue: [Node] = []
 
     queue.append(source)
@@ -23,8 +24,9 @@ func bfs(_ graph: Graph, source: Node) -> [String] {
 
     while let node = queue.first {
         queue.removeFirst()
-        for item in node.neighbors {
-            let neighbor = item.neighbor
+        // 访问node的所有邻接点
+        for edge in node.neighbors {
+            let neighbor = edge.neighbor
             if !neighbor.visited {
                 queue.append(neighbor)
                 result.append(neighbor.label)

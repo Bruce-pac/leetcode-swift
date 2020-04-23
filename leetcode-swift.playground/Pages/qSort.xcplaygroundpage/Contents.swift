@@ -54,6 +54,7 @@ func partition(_ arr: [Int]) -> (left: [Int], mid: Int, right: [Int]) {
 }
 
 func partition(_ result: inout [Int], left: Int, right: Int) -> Int {
+    // 取最左边为基准值
     let mid = result[left]
     var i = left
     var j = right
@@ -62,12 +63,15 @@ func partition(_ result: inout [Int], left: Int, right: Int) -> Int {
         while i < j && result[j] >= mid {
             j = result.index(before: j)
         }
-        result[i] = result[j]
+        // 两种写法都行
+//        result[i] = result[j]
+        result.swapAt(i, j)
 
         while i < j && result[i] <= mid  {
             i = result.index(after: i)
         }
-        result[j] = result[i]
+//        result[j] = result[i]
+        result.swapAt(i, j)
     }
     result[i] = mid
 
@@ -98,7 +102,9 @@ func sortArray(_ nums: [Int]) -> [Int] {
     return result
 }
 
-let result1 = sortArray([2,1,3])
+let input = Array(0...100).shuffled()
+
+let result1 = sortArray(input)
 print(result1)
 
 //print(arr.count)

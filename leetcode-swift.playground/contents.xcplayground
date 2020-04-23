@@ -25,5 +25,6 @@
         <page name='hasGroupsSizeX'/>
         <page name='reverseWords'/>
         <page name='addTwoNumbers'/>
+        <page name='numWays'/>
     </pages>
 </playground>
